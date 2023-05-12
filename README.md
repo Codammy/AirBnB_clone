@@ -43,7 +43,7 @@ Your shell should work like this in interactive mode:
 * (hbnb)
 * (hbnb) quit
 * $
- *But also in non-interactive mode: (like the Shell project in C)
+ But also in non-interactive mode: (like the Shell project in C)
 
 * $ echo "help" | ./console.py
 * (hbnb)
