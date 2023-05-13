@@ -10,28 +10,24 @@ For this project, we expect you to look at these concepts:
 Welcome to the AirBnB clone project!
 Before starting, please read the AirBnB concept page
 
-# hbnb
+# Hbnb
 The goal of the project is to deploy on your server a simple copy of the AirBnB website.
+                                                                                         not all the features would be implmented, only some of them to cover all fundamental concepts of the higher level programming track.
 
-not all the features would be implmented, only some of them to cover all fundamental concepts of the higher level programming track.
+* First step:  Write a command interpreter to manage your AirBnB objects.                This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-e
+nd integration…
 
-* First step:  Write a command interpreter to manage your AirBnB objects.
-This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
-
-# What’s a command interpreter?
-A command interpreter is a program that executes other programs, but in our case ours is to:
+# What’s a command interpreter?                                                          A command interpreter is a program that executes other programs, but in our case ours is
+to:
 * Create a new object (ex: a new User or a new Place)
 * Retrieve an object from a file, a database etc…
 * Do operations on objects (count, compute stats, etc…)
 * Update attributes of an object
 * Destroy an object
 
-# description of cli
-Example on how to start, how to use.
-
-Execution
-Your shell should work like this in interactive mode:
-
+# Description of cli
+Example on how to start, how to use.                                                     
+Execution                                                                                Your shell should work like this in interactive mode:                                    
 * $ ./console.py
 * (hbnb) help
 
