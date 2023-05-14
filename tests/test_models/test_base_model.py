@@ -4,7 +4,8 @@
     Test module for base_model.py
 """
 
-BaseModel = __import__('models.base_model').BaseModel
+import unittest
+from models.base_model import BaseModel
 import uuid
 from datetime import datetime
 
