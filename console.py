@@ -11,5 +11,5 @@ Command interpreter with the following objectives:
 """
 
 
-class console(cmd.Cmd):
+class Console(cmd.Cmd):
     pass
