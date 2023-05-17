@@ -23,8 +23,8 @@ class BaseModel():
         new_dict = {}
         new_dict['__class__'] = self.__class__.__name__
         for attr, val in self.__dict__.items():
-            if attr == self.created_at or attr == self.updated_at:
-                new_dict[attr] = val.isoformat()
-                continue
-            new_dict[attr] = val
+            if attr == 'created_at' or attr == 'updated_at':
+                new_dict[attr] = str(val.isoformat())
+            else:
+                new_dict[attr] = val
         return new_dict
