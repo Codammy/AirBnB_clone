@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
-import storage
+from models import storage
 """
         BaseModel that defines all common attributes/methods for other classes
 """
@@ -22,7 +22,7 @@ class BaseModel():
                     if i == k:
                         self.__dict__[i] = v
         else:
-            storage.new()
+            storage.new(self)
 
     def __str__(self):
         return f'[BaseModel] ({self.id}) {self.__dict__}'

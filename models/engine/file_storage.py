@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 import json
-""" class FileStorage that serializes instances to a JSON file and deserializes JSON file to instances:
+"""
+serializes instances to a JSON file
+and deserializes JSON file to instances:
+"""
 
-    models/engine/file_storage.py"""
 
 class FileStorage():
     """class FileStorage"""
@@ -10,15 +12,15 @@ class FileStorage():
     __objects = {}
 
     def all(self):
-        return __objects
+        return FileStorage.__objects
 
     def new(self, obj):
-        obj.__class__.name 
+        FileStorage.__objects[obj.__class__.__name__ + "." + obj.id] = obj.to_dict()
 
     def save(self):
-        with open(__file_path, "w+") as tosave:
-            json.dump(__objects)
+        with open(FileStorage.__file_path, "a+") as loadto:
+            json.dump(FileStorage.__objects, loadto)
 
     def reload(self):
-        with open(__file_path, "r") as tosave:
-            return json.load(__objects)
+        with open(FileStorage.__file_path) as loadfrom:
+            FileStorage.__objects = json.load(loadfrom)
