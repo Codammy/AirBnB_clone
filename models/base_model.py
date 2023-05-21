@@ -15,7 +15,7 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def __str__(self):
-        return f'{[self.__class__.__name__}] {(<self.id>}) {<self.__dict__>}'
+        return f'[{self.__class__.__name__}] (<{id}>) <{self.__dict__}>'
 
     def save(self):
         self.updated_at = datetime.now()
@@ -23,8 +23,8 @@ class BaseModel:
     def to_dict(self):
         new_dict = {}
         new_dict['__class__'] = self.__class__.__name__
-        for attr, val in self.__dict__:
-            if attr == created_at or attr == updated_at:
-                new_dict[attr] = val.isoformat()
+        for attr, val in self.__dict__.items():
+            if isinstance(val, datetime):
+                val = val.isoformat()
             new_dict[attr] = val
         return new_dict
