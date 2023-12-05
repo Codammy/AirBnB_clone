@@ -15,4 +15,4 @@ After 4 months, you will have a complete web application composed by:</p>
 
 ## Data diagram
 
-[dataDiagram](/dataDiagram.jpg)
+![dataDiagram](/dataDiagram.jpg)
