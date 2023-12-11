@@ -15,8 +15,8 @@ class HBNBCommand(cmd.Cmd):
     """command interpreter for performing
     quick actions on the hbnb web app"""
     prompt = "(hbnb) "
-    classes = ['BaseModel', 'User', 'Place', \
-            'State', 'City', 'Amenity', 'Review']
+    classes = ['BaseModel', 'User', 'Place',
+               'State', 'City', 'Amenity', 'Review']
 
     def do_quit(sef, args):
         """exits the interpreter"""
@@ -82,20 +82,7 @@ class HBNBCommand(cmd.Cmd):
             instances = storage.all()
             if obj in instances.keys():
                 actual_obj = instances[obj]
-                if actual_obj.__class__.__name__ == 'BaseModel':
-                    print(actual_obj)
-                elif actual_obj.__class__.__name__ == 'User':
-                    print(actual_obj)
-                if actual_obj.__class__.__name__ == 'State':
-                    print(actual_obj)
-                elif actual_obj.__class__.__name__ == 'City':
-                    print(actual_obj)
-                if actual_obj.__class__.__name__ == 'Place':
-                    print(actual_obj)
-                elif actual_obj.__class__.__name__ == 'Amenity':
-                    print(actual_obj)
-                elif actual_obj.__class__.__name__ == 'Review':
-                    print(actual_obj)
+                print(actual_obj)
             else:
                 print("** no instance found **")
 
@@ -134,20 +121,7 @@ class HBNBCommand(cmd.Cmd):
                     attributes.append(i)
         strrep = []
         for attr in attributes:
-            if attr.__class__.__name__ == 'BaseModel':
-                strrep.append(str(attr))
-            if attr.__class__.__name__ == 'User':
-                strrep.append(str(attr))
-            if attr.__class__.__name__ == 'Place':
-                strrep.append(str(attr))
-            if attr.__class__.__name__ == 'City':
-                strrep.append(str(attr))
-            if attr.__class__.__name__ == 'Review':
-                strrep.append(str(attr))
-            if attr.__class__.__name__ == 'Amenity':
-                strrep.append(str(attr))
-            if attr.__class__.__name__ == 'State':
-                strrep.append(str(attr))
+            strrep.append(str(attr))
         print(strrep)
 
     def do_update(self, args):

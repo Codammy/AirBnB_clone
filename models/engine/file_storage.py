@@ -19,17 +19,17 @@ class FileStorage:
                 v = v.to_dict()
             if v['__class__'] == 'BaseModel':
                 FileStorage.__objects[k] = base_model.BaseModel(**v)
-            if v['__class__'] == 'User':
+            elif v['__class__'] == 'User':
                 FileStorage.__objects[k] = user.User(**v)
-            if v['__class__'] == 'State':
+            elif v['__class__'] == 'State':
                 FileStorage.__objects[k] = state.State(**v)
-            if v['__class__'] == 'City':
+            elif v['__class__'] == 'City':
                 FileStorage.__objects[k] = city.City(**v)
-            if v['__class__'] == 'Place':
-                FileStorage.__objects[k] = base_model.BaseModel(**v)
-            if v['__class__'] == 'User':
+            elif v['__class__'] == 'Place':
                 FileStorage.__objects[k] = place.Place(**v)
-            if v['__class__'] == 'Review':
+            elif v['__class__'] == 'Amenity':
+                FileStorage.__objects[k] = amenity.Amenity(**v)
+            elif v['__class__'] == 'Review':
                 FileStorage.__objects[k] = review.Review(**v)
         return FileStorage.__objects
 
