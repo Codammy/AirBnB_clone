@@ -28,7 +28,7 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self.to_dict())
+        storage.new(self)
 
     def __str__(self):
         """
@@ -39,8 +39,8 @@ class BaseModel:
 
     def save(self):
         """saves the content with the updated time"""
-        storage.save()
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self, *args, **kwargs):
         """returns a dictionary containing all key/values of {self}"""
