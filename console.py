@@ -18,6 +18,48 @@ class HBNBCommand(cmd.Cmd):
     classes = ['BaseModel', 'User', 'Place',
                'State', 'City', 'Amenity', 'Review']
 
+    def precmd(self, line):
+        """action to be performed before passing command"""
+        if line.endswith(".all()"):
+            return f"all {line[:-6]}"
+        cm = line.split('.')[-1]
+        if cm .startswith('show(') and cm.endswith(')'):
+            return f"show {line.strip('.' + cm)} {cm[6:-2]}"
+        if cm .startswith('destroy(') and cm.endswith(')'):
+            return f"destroy {line.removesuffix('.' + cm)} {cm[9:-2]}"
+        if cm .startswith('update(') and cm.endswith(')'):
+            if cm[-2] == '}':
+                return line
+            up = cm[7:-1].replace(',', ' ')
+            up = up.replace("'", '')
+            up = up.replace('"', '')
+            return f"update {line.removesuffix('.' + cm)} {up}"
+        else:
+            return line
+
+    def onecmd(self, line):
+        """command to be executed"""
+        if line in ['quit', 'EOF']:
+            return True
+        if line.endswith(".count()"):
+            instances = storage.all()
+            cls = line.strip('.count()')
+            count = 0
+            for i in instances.values():
+                if i.__class__.__name__ == cls:
+                    count += 1
+            print(count)
+        elif 'update(' in line and line.endswith(')'):
+            cm = line.split('.')[-1]
+            eyed = cm[8:44]
+            props = eval(cm[46:-1].strip())
+            user = line.removesuffix('.' + cm)
+            for k, v in props.items():
+                print(f"update {user} {k} {v}")
+                self.do_update(f"{user} {eyed} {k} {v}")
+        else:
+            super().onecmd(line)
+
     def do_quit(sef, args):
         """exits the interpreter"""
         return True
