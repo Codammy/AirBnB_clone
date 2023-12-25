@@ -27,6 +27,7 @@ section.filters .locations, section.filters .amenities{
 }
 section.filters .locations:hover .popover, section.filters .amenities:hover .popover{
 	display: block;
+	position: relative;
 }
 
 section.filters .locations {
@@ -54,6 +55,7 @@ section.filters h4{
 	list-style: none;
 	margin-block-start: 15px;
 	padding-block: 10px;
+	z-index: 99;
 }
 .popover h2{
 	font-size: 16px;
