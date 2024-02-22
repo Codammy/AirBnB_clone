@@ -15,8 +15,11 @@ class HBNBCommand(cmd.Cmd):
     """command interpreter for performing
     quick actions on the hbnb web app"""
     prompt = "(hbnb) "
-    classes = ['BaseModel', 'User', 'Place',
-               'State', 'City', 'Amenity', 'Review']
+    classes = {
+               'BaseModel': BaseModel, 'User': User, 'Place': Place,
+               'State': State, 'City': City, 'Amenity': Amenity,
+               'Review': Review
+              }
 
     def precmd(self, line):
         """action to be performed before passing command"""
@@ -80,32 +83,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif args[0] not in self.__class__.classes:
             print("** class doesn't exist **")
-        elif args[0] == 'BaseModel':
-            b = BaseModel()
-            print(b.id)
-            b.save()
-        elif args[0] == 'User':
-            b = User()
-            print(b.id)
-            b.save()
-        elif args[0] == 'City':
-            b = City()
-            print(b.id)
-            b.save()
-        elif args[0] == 'Amenity':
-            b = Amenity()
-            print(b.id)
-            b.save()
-        elif args[0] == 'State':
-            b = State()
-            print(b.id)
-            b.save()
-        elif args[0] == 'Place':
-            b = Place()
-            print(b.id)
-            b.save()
-        elif args[0] == 'Review':
-            b = Review()
+        else:
+            class_name = self.__class__.classes[args[0]]
+            b = class_name()
             print(b.id)
             b.save()
 
